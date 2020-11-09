@@ -3,6 +3,7 @@ package rocks.zipcodewilmington;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.Mammal;
@@ -114,6 +115,7 @@ public class CatTest {
         Date givenBirthDate = new Date();
         Integer givenId = 0;
 
+
         // When (a cat is constructed)
         Cat cat = new Cat(givenName, givenBirthDate, givenId);
 
@@ -126,6 +128,17 @@ public class CatTest {
         Assert.assertEquals(givenName, retrievedName); //
         Assert.assertEquals(givenBirthDate, retrievedBirthDate);
         Assert.assertEquals(givenId, retrievedId);
+    }
+
+    @Test
+    public void idTest(){
+        Integer expectedId = 1;
+        Cat cat = new Cat(expectedId);
+
+        Integer retrievedId = cat.getId();
+        Assert.assertEquals(expectedId, retrievedId);
+
+
     }
 
 }
